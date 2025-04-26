@@ -7,29 +7,41 @@ class NumberNineScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan Sembilan',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black),
-        ],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Nine Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
       body: Center(
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: Colors.red,
-              width: 8, // Lebar border biru
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(300),
+              border: Border.all(
+                color: Colors.black,
+                width: 10,
+              ),
             ),
-            image: const DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage('lib/assets/sekolah.webp'), // Gambar lokal
+            child: ClipOval(
+              child: Image.asset(
+                'assets/frofile.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
