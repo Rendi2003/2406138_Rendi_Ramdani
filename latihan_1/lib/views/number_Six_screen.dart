@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class SixScreen extends StatelessWidget {
+class NumberSixScreen extends StatelessWidget {
   final Random _random = Random();
 
-  SixScreen({super.key});
+  NumberSixScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class SixScreen extends StatelessWidget {
             Icon(Icons.more_vert),
           ],
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0),
