@@ -5,75 +5,79 @@ class NumberElevenScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Data untuk baris kedua
-    final List<Map<String, dynamic>> dataBawah = [
-      {'color': Colors.red, 'text': 'Kotak Merah'},
-      {'color': Colors.green, 'text': 'Kotak Hijau'},
-      {'color': Colors.blue, 'text': 'Kotak Biru'},
-      {'color': Colors.orange, 'text': 'Kotak Orange'},
-      {'color': Colors.purple, 'text': 'Kotak Ungu'},
-    ];
-
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan Ke Sebelas',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(size: 40),
+          onPressed: () => Navigator.of(context).pop(),
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black),
-        ],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [Text('Eleven Screen'), Icon(Icons.more_vert)],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            // Baris pertama: Scroll Horizontal
-            SingleChildScrollView(
+      body: Column(
+        children: [
+          SizedBox(
+            height: 120,
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 33),
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(20, (index) {
-                  return Container(
-                    width: 80,
-                    height: 80,
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    color: Colors.primaries[index % Colors.primaries.length],
-                  );
-                }),
-              ),
+              itemCount: 15,
+              itemBuilder: (context, index) {
+                final color = index % 2 == 0 ? Colors.blue : Colors.yellow;
+                return Container(
+                  width: 100,
+                  margin: const EdgeInsets.only(right: 10),
+                  color: color,
+                  child: Center(
+                    child: Text(
+                      'Hello ${index + 1}',
+                      style: TextStyle(
+                        color:
+                            color == Colors.blue ? Colors.white : Colors.black,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
-            const SizedBox(height: 30),
-            // Baris kedua: Kotak vertikal dengan text di bawahnya
-            Expanded(
-              child: ListView.builder(
-                itemCount: dataBawah.length,
-                itemBuilder: (context, index) {
-                  return Column(
+          ),
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.only(
+                  top: 16, bottom: 16, left: 16, right: 16),
+              itemCount: 15,
+              itemBuilder: (context, index) {
+                final color = index % 2 == 0 ? Colors.blue : Colors.yellow;
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: 100,
                         width: double.infinity,
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        color: dataBawah[index]['color'],
+                        height: 200,
+                        color: color,
                       ),
-                      const SizedBox(height: 5),
+                      const SizedBox(height: 12),
                       Text(
-                        dataBawah[index]['text'],
+                        'Halo ${index + 1}',
                         style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
+                          fontSize: 50,
                         ),
                       ),
-                      const SizedBox(height: 10),
                     ],
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
