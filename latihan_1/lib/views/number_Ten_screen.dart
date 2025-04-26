@@ -7,52 +7,83 @@ class NumberTenScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan ke sepuluh',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black),
-        ],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Ten Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
       body: Center(
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: 200,
-                  height: 200,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  width: 300,
+                  height: 300,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    borderRadius: BorderRadius.circular(300),
                     border: Border.all(
                       color: Colors.blue,
-                      width: 8,
+                      width: 10,
                     ),
-                    image: const DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage('lib/assets/sekolah.webp'),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 300,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(300),
+                        border: Border.all(
+                          color: Colors.blue,
+                          width: 0.80,
+                        ),
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'lib/assets/sekolah.webp',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                const Text(
-                  'SDN 1 SIRMASARI',
+              ),
+              Container(
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Colors.black,
+                      width: 3,
+                    ),
+                  ),
+                ),
+                child: const Text(
+                  'Rendi Ramdani',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                    decoration:
-                        TextDecoration.underline, // Tambahkan garis bawah
+                    fontStyle: FontStyle.italic,
+                    height: 0.80,
                   ),
                 ),
-              ],
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );
