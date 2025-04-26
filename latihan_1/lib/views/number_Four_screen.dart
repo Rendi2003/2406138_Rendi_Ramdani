@@ -7,35 +7,46 @@ class NumberFourScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white, // Ubah ke putih
-        leading: const FlutterLogo(),
-        title: const Text(
-          'pertemuan Empat', // Sesuai gambar
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black), // Iconnya warna hitam
-        ],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Four Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: 15,
         itemBuilder: (context, index) {
-          Color boxColor = (index % 2 == 0) ? Colors.blue : Colors.yellow;
-
-          return Row(
-            children: [
-              Container(
-                height: 80,
-                width: 80,
-                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                color: boxColor,
-                alignment: Alignment.center,
-                child: const Text(
-                  'Hello',
-                  style: TextStyle(color: Colors.black),
+          final color = index % 2 == 0 ? Colors.blue : Colors.yellow;
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                width: 150,
+                height: 150,
+                color: color,
+                child: Center(
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(
+                      color: color == Colors.blue ? Colors.white : Colors.black,
+                      fontSize: 20.0,
+                    ),
+                  ),
                 ),
               ),
-            ],
+            ),
           );
         },
       ),
