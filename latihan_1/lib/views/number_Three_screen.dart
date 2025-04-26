@@ -7,47 +7,45 @@ class NumberThreeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        leading: FlutterLogo(),
-        title: Text(
-          'pertemuan Tiga',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [Icon(Icons.more_vert)],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3, // 3 kotak per baris
-            crossAxisSpacing: 8,
-            mainAxisSpacing: 8,
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
           ),
-          itemCount: 30, // Bisa kamu sesuaikan
-          itemBuilder: (context, index) {
-            Color backgroundColor;
-
-            if (index % 3 == 0) {
-              backgroundColor = Colors.blue[800]!;
-            } else if (index % 3 == 1) {
-              backgroundColor = Colors.yellow[700]!;
-            } else {
-              backgroundColor = Colors.red[400]!;
-            }
-
-            return Container(
-              color: backgroundColor,
-              alignment: Alignment.center,
-              child: const Text(
-                'Hello',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                ),
-              ),
-            );
+          onPressed: () {
+            Navigator.of(context).pop();
           },
         ),
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Tree Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
+      ),
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10.0,
+          crossAxisSpacing: 10.0,
+        ),
+        itemCount: 15,
+        itemBuilder: (context, index) {
+          final color = index % 2 == 0 ? Colors.blue : Colors.yellow;
+          return Container(
+            color: color,
+            child: Center(
+              child: Text(
+                'Hello',
+                style: TextStyle(
+                  color: color == Colors.blue ? Colors.white : Colors.black,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
