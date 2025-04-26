@@ -1,53 +1,90 @@
 import 'package:flutter/material.dart';
 
-class NumberEightScreen extends StatelessWidget {
-  const NumberEightScreen({super.key});
+class NumberTwoScreen extends StatelessWidget {
+  const NumberTwoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan Delapan',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black),
-        ],
-      ),
-      body: Center(
-        child: Stack(
-          alignment: Alignment.center,
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: 200,
-              height: 200,
-              color: Colors.green,
-            ),
-            Container(
-              width: 180,
-              height: 180,
-              color: Colors.red,
-            ),
-            Container(
-              width: 160,
-              height: 160,
-              color: Colors.purple,
-            ),
-            Container(
-              width: 140,
-              height: 140,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 120,
-              height: 120,
-              color: Colors.blue,
-            ),
+            Text('Two Screen'),
+            Icon(Icons.more_vert),
           ],
         ),
+        backgroundColor: Colors.grey.shade300,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+                child: const Center(
+                    child: Text(
+                  'Hello',
+                  style: TextStyle(fontSize: 24),
+                )),
+              ),
+            ],
+          ),
+          const FlutterLogo(
+            size: 200,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+                child: const Center(
+                    child: Text(
+                  'Hello',
+                  style: TextStyle(fontSize: 24),
+                )),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
