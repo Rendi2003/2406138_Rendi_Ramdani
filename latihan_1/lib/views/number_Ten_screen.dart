@@ -22,7 +22,7 @@ class NumberTenScreen extends StatelessWidget {
             Icon(Icons.more_vert),
           ],
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Center(
@@ -55,7 +55,7 @@ class NumberTenScreen extends StatelessWidget {
                       ),
                       child: ClipOval(
                         child: Image.asset(
-                          'lib/assets/sekolah.webp',
+                          'lib/assets/foto1.jpg',
                           fit: BoxFit.cover,
                         ),
                       ),
