@@ -9,18 +9,27 @@ class NumberOneScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        leading: FlutterLogo(),
-        title: Text(
-          'pertemuan pertama',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: [Icon(Icons.more_vert)],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('One Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
       body: Center(
         child: Transform.rotate(
           angle: pi / 2,
-          child: FlutterLogo(
+          child: const FlutterLogo(
             size: 200,
           ),
         ),
