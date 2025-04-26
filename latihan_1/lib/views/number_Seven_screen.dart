@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SevenScreen extends StatelessWidget {
-  const SevenScreen({super.key});
+class NumberSevenScreen extends StatelessWidget {
+  const NumberSevenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SevenScreen extends StatelessWidget {
             Icon(Icons.more_vert),
           ],
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.blue,
       ),
       body: Container(
         width: 200,
