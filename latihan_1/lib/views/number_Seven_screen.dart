@@ -1,51 +1,64 @@
 import 'package:flutter/material.dart';
 
-class NumberSevenScreen extends StatelessWidget {
-  const NumberSevenScreen({super.key});
+class SevenScreen extends StatelessWidget {
+  const SevenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan Tujuh',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert, color: Colors.black),
-        ],
-      ),
-      body: Center(
-        child: Stack(
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: 200,
-              height: 200,
-              color: Colors.green,
-            ),
-            Container(
-              width: 180,
-              height: 180,
-              color: Colors.red,
-            ),
-            Container(
-              width: 160,
-              height: 160,
-              color: Colors.purple,
-            ),
-            Container(
-              width: 140,
-              height: 140,
-              color: Colors.yellow,
-            ),
-            Container(
-              width: 120,
-              height: 120,
-              color: Colors.blue,
-            ),
+            Text('Seven Screen'),
+            Icon(Icons.more_vert),
           ],
+        ),
+        backgroundColor: Colors.grey.shade300,
+      ),
+      body: Container(
+        width: 200,
+        height: 200,
+        color: Colors.green,
+        child: Padding(
+          padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+          child: Container(
+            width: 100,
+            height: 100,
+            color: Colors.red,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.purple,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.yellow,
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 25.0, bottom: 25.0),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );
