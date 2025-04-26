@@ -7,83 +7,82 @@ class NumberTwoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        leading: const FlutterLogo(),
-        title: const Text(
-          'Pertemuan Dua',
-          style: TextStyle(color: Colors.black),
+        leading: IconButton(
+          icon: const FlutterLogo(
+            size: 40,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        actions: const [
-          Icon(Icons.more_vert),
-        ],
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Two Screen'),
+            Icon(Icons.more_vert),
+          ],
+        ),
+        backgroundColor: Colors.grey.shade300,
       ),
-      body: Stack(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Kiri Atas
-          Positioned(
-            top: 20,
-            left: 20,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.yellow,
-              alignment: Alignment.center,
-              child: const Text(
-                'Kiri Atas',
-                style: TextStyle(fontSize: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ),
               ),
-            ),
-          ),
-          // Kiri Bawah
-          Positioned(
-            bottom: 20,
-            left: 20,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.orange,
-              alignment: Alignment.center,
-              child: const Text(
-                'Kiri Bawah',
-                style: TextStyle(fontSize: 16),
+              const SizedBox(height: 20),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+                child: const Center(
+                    child: Text(
+                  'Hello',
+                  style: TextStyle(fontSize: 24),
+                )),
               ),
-            ),
+            ],
           ),
-          // Kanan Atas
-          Positioned(
-            top: 20,
-            right: 20,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.green,
-              alignment: Alignment.center,
-              child: const Text(
-                'Kanan Atas',
-                style: TextStyle(fontSize: 16),
+          const FlutterLogo(
+            size: 200,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.yellow,
+                child: const Center(
+                    child: Text(
+                  'Hello',
+                  style: TextStyle(fontSize: 24),
+                )),
               ),
-            ),
-          ),
-          // Kanan Bawah
-          Positioned(
-            bottom: 20,
-            right: 20,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
-              alignment: Alignment.center,
-              child: const Text(
-                'Kanan Bawah',
-                style: TextStyle(fontSize: 16),
+              const SizedBox(height: 20),
+              Container(
+                width: 150,
+                height: 150,
+                color: Colors.blue,
+                child: const Center(
+                  child: Text(
+                    'Hello',
+                    style: TextStyle(fontSize: 24, color: Colors.white),
+                  ),
+                ),
               ),
-            ),
-          ),
-          // Icon Flutter di tengah
-          const Center(
-            child: FlutterLogo(
-              size: 100,
-            ),
+            ],
           ),
         ],
       ),
