@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NumberTwoScreen extends StatelessWidget {
-  const NumberTwoScreen({super.key});
+class NumberEightScreen extends StatelessWidget {
+  const NumberEightScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,73 +18,50 @@ class NumberTwoScreen extends StatelessWidget {
         title: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Two Screen'),
+            Text('Eight Screen'),
             Icon(Icons.more_vert),
           ],
         ),
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: Colors.blue,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue,
-                child: const Center(
-                  child: Text(
-                    'Hello',
-                    style: TextStyle(fontSize: 24, color: Colors.white),
+      body: Center(
+        child: Container(
+          width: 300,
+          height: 300,
+          color: Colors.green,
+          child: Padding(
+            padding: const EdgeInsets.all(25),
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.red,
+              child: Padding(
+                padding: const EdgeInsets.all(25),
+                child: Container(
+                  width: 100,
+                  height: 100,
+                  color: Colors.purple,
+                  child: Padding(
+                    padding: const EdgeInsets.all(25),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.yellow,
+                      child: Padding(
+                        padding: const EdgeInsets.all(25),
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.yellow,
-                child: const Center(
-                    child: Text(
-                  'Hello',
-                  style: TextStyle(fontSize: 24),
-                )),
-              ),
-            ],
+            ),
           ),
-          const FlutterLogo(
-            size: 200,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.yellow,
-                child: const Center(
-                    child: Text(
-                  'Hello',
-                  style: TextStyle(fontSize: 24),
-                )),
-              ),
-              const SizedBox(height: 20),
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.blue,
-                child: const Center(
-                  child: Text(
-                    'Hello',
-                    style: TextStyle(fontSize: 24, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }
